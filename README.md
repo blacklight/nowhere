@@ -82,6 +82,19 @@ pnpm build                                          # outputs to nowhr/build/
 
 Requires Node.js 20+ and pnpm 10+.
 
+## Docker
+
+Build and run the container:
+
+```bash
+docker build -t nowhere .
+docker run -d -p 8080:80 nowhere
+```
+
+The app will be available at `http://localhost:8080`.
+
+The image uses a multi-stage build (Node 22 for building, nginx Alpine for serving) and produces a minimal container with just the static output. Static assets are cached aggressively for one year.
+
 ## LICENSE
 
 Copyright (c) 2026 5t34k - npub1x5t34kxd79m657qcuwp4zrypy9t8t4e6yks5zapjvau29t0xvgaqakh2p2
