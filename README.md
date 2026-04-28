@@ -60,9 +60,9 @@ The repo is a pnpm workspace. Codec is standalone: any application that wants to
 
 | Variable | Default | Description |
 |---|---|---|
-| `PUBLIC_SITE_ORIGIN` | `https://nowhr.xyz` | Canonical origin used for share links, QR codes, og:image URLs, and instance detection. Set at build time. |
+| `PUBLIC_SITE_ORIGIN` | `window.location.origin` | Canonical origin used for share links, QR codes, og:image URLs, and instance detection. Optional build-time override. |
 
-To deploy under a custom domain, set the variable before building:
+By default the app uses `window.location.origin` at runtime, so deploying to any domain works automatically — no env var needed. If you need to pin the origin to a value that differs from the serving domain (e.g. for pre-rendering or build-time inlining), set it before building:
 
 ```
 PUBLIC_SITE_ORIGIN=https://my-instance.example pnpm build
