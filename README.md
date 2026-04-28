@@ -56,15 +56,29 @@ nowhr/                     App shell with routing, PWA, QR scanner.
 
 The repo is a pnpm workspace. Codec is standalone: any application that wants to read or create nowhere data only needs this package. Web is the component library with builders, renderers, Nostr integration, and payment handling. nowhr wires web into a deployable static site at [nowhr.xyz](https://nowhr.xyz/app).
 
+## Configuration
+
+| Variable | Default | Description |
+|---|---|---|
+| `PUBLIC_SITE_ORIGIN` | `https://nowhr.xyz` | Canonical origin used for share links, QR codes, og:image URLs, and instance detection. Set at build time. |
+
+To deploy under a custom domain, set the variable before building:
+
+```
+PUBLIC_SITE_ORIGIN=https://my-instance.example pnpm build
+```
+
+The signing prefix in `nowhere-signing.ts` (`NOWHERE_PREFIX`) is a protocol constant and is **not** affected by this variable.
+
 ## Running locally
 
 ```
 pnpm install
 cd nowhr
-pnpm dev          # localhost:5174
-pnpm build        # outputs to nowhr/build/
+pnpm dev                                           # localhost:5174
+PUBLIC_SITE_ORIGIN=https://custom.dev pnpm dev     # custom origin
+pnpm build                                          # outputs to nowhr/build/
 ```
-
 
 Requires Node.js 20+ and pnpm 10+.
 

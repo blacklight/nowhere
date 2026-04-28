@@ -2357,7 +2357,7 @@ import ManageNav from './ManageNav.svelte';
 						{/if}
 
 						<div class="url-row" style="margin-top: var(--space-3)">
-							<input type="text" bind:value={storeUrlInput} placeholder="https://nowhr.xyz/s#…" class="url-input"
+							<input type="text" bind:value={storeUrlInput} placeholder="{RENDERER_ORIGIN}/s#…" class="url-input"
 								onkeydown={(e) => e.key === 'Enter' && loadSingleStore()}
 								oninput={() => { storeDecryptMode = false; storeDecryptPassword = ''; storeDecryptError = ''; storePendingFragment = ''; }} />
 							<button class="btn-outline" onclick={loadSingleStore}>Add</button>

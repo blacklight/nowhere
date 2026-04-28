@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { RENDERER_ORIGIN } from '$lib/config';
 
 	interface BeforeInstallPromptEvent extends Event {
 		prompt(): Promise<void>;
@@ -95,7 +96,7 @@
 	<meta name="description" content="Nowhere encodes an entire website into a URL. The site lives in the link itself and is never stored on a server. Install the app to create and view them offline.">
 	<meta property="og:title" content="install nowhere">
 	<meta property="og:description" content="Nowhere encodes an entire website into a URL. The site lives in the link itself and is never stored on a server. Install the app to create and view them offline.">
-	<meta property="og:image" content="https://nowhr.xyz/og.png">
+	<meta property="og:image" content="{RENDERER_ORIGIN}/og.png">
 	<meta property="og:type" content="website">
 	<meta name="twitter:card" content="summary">
 </svelte:head>

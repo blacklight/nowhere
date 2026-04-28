@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { navigating } from '$app/state';
+	import { RENDERER_ORIGIN, SITE_HOSTNAME } from '$lib/config';
 
 	interface BeforeInstallPromptEvent extends Event {
 		prompt(): Promise<void>;
@@ -52,7 +53,7 @@
 		}
 
 		const host = window.location.hostname;
-		if (host !== 'nowhr.xyz') instanceHost = host;
+		if (host !== SITE_HOSTNAME) instanceHost = host;
 
 		const btn = document.getElementById('theme-toggle');
 		btn?.addEventListener('click', toggle);
@@ -140,7 +141,7 @@
 	<meta name="description" content="Nowhere encodes an entire website into a URL. The site lives in the link itself and is never stored on a server. Hosted nowhere, present everywhere.">
 	<meta property="og:title" content="nowhere">
 	<meta property="og:description" content="Nowhere encodes an entire website into a URL. The site lives in the link itself and is never stored on a server. Hosted nowhere, present everywhere.">
-	<meta property="og:image" content="https://nowhr.xyz/og.png">
+	<meta property="og:image" content="{RENDERER_ORIGIN}/og.png">
 	<meta property="og:type" content="website">
 	<meta name="twitter:card" content="summary">
 </svelte:head>

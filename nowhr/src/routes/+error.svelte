@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	import { SITE_HOSTNAME } from '$lib/config';
 
 	let themeLabel = $state('dark');
 	let instanceHost = $state<string | null>(null);
@@ -9,7 +10,7 @@
 		const html = document.documentElement;
 
 		const host = window.location.hostname;
-		if (host !== 'nowhr.xyz') instanceHost = host;
+		if (host !== SITE_HOSTNAME) instanceHost = host;
 
 		function isDark() {
 			return html.dataset.theme === 'dark' ||

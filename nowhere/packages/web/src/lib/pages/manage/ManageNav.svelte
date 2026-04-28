@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { RENDERER_ORIGIN } from '$lib/config';
+
 	let { highlightManage = false } = $props();
 
 	const tools = [
@@ -71,7 +73,7 @@
 				</div>
 			{/if}
 		</div>
-		<a href="https://nowhr.xyz" class="nav-link">app</a>
+		<a href={RENDERER_ORIGIN} class="nav-link">app</a>
 		<a href="https://hostednowhere.com/manage" class="nav-link" class:nav-link-active={highlightManage}>manage</a>
 		<a href="https://hostednowhere.com/#create" class="nav-link nav-link-create">create →</a>
 	</div>

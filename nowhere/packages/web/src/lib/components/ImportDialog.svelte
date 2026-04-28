@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { decode, decryptFragment } from '@nowhere/codec';
+	import { RENDERER_ORIGIN } from '$lib/config';
 
 	interface Props {
 		onImport: (url: string) => void;
@@ -103,7 +104,7 @@
 				id="import-url"
 				rows="4"
 				bind:value={url}
-				placeholder="https://nowhr.xyz/s#..."
+				placeholder="{RENDERER_ORIGIN}/s#..."
 				onkeydown={handleKeydown}
 			></textarea>
 		</div>

@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import { browser } from '$app/environment';
 	import { onMount, setContext } from 'svelte';
+	import { RENDERER_ORIGIN } from '$lib/config';
 
 	let { children } = $props();
 
@@ -27,7 +28,7 @@
 	setContext('sidebarNav', {
 		homeHref: 'https://hostednowhere.com',
 		pwaBack: isStandalone ? '/app' : undefined,
-		getApp: (!isStandalone && isTouch) ? 'https://nowhr.xyz/app' : undefined,
+		getApp: (!isStandalone && isTouch) ? `${RENDERER_ORIGIN}/app` : undefined,
 	});
 </script>
 

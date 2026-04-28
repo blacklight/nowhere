@@ -5,6 +5,7 @@
 	import { getAvailablePaymentMethods } from '$lib/payment-methods.js';
 	import { platformByCode, parseContacts, CUSTOM_CODE, CUSTOM_ICON } from '$lib/contacts.js';
 	import FooterModal from './FooterModal.svelte';
+	import { RENDERER_ORIGIN, SITE_HOSTNAME } from '$lib/config';
 
 	interface Props {
 		store: StoreData;
@@ -620,7 +621,7 @@
 				</div>
 				<div>
 					<div class="detail-value">Host it yourself</div>
-					<div class="detail-label">The Nowhere code is open source, so anyone can run their own instance. Store links are universal - they work on any site running the Nowhere software, not just <a href="https://nowhr.xyz" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline;">nowhr.xyz</a>.</div>
+					<div class="detail-label">The Nowhere code is open source, so anyone can run their own instance. Store links are universal - they work on any site running the Nowhere software, not just <a href={RENDERER_ORIGIN} target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline;">{SITE_HOSTNAME}</a>.</div>
 				</div>
 			</div>
 		</div>

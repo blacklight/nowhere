@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { APP_VERSION } from '$lib/version';
+	import { RENDERER_ORIGIN, SITE_HOSTNAME } from '$lib/config';
 	import { readBarcodes, prepareZXingModule } from 'zxing-wasm/reader';
 	import zxingReaderWasm from 'zxing-wasm/reader/zxing_reader.wasm?url';
 
@@ -327,7 +328,7 @@
 
 	onMount(() => {
 		const host = window.location.hostname;
-		if (host !== 'nowhr.xyz') instanceHost = host;
+		if (host !== SITE_HOSTNAME) instanceHost = host;
 
 		const html = document.documentElement;
 
@@ -369,7 +370,7 @@
 		btn?.addEventListener('click', toggle);
 
 		// Placeholder decode animation
-		const target = 'nowhr.xyz/s#…';
+		const target = `${SITE_HOSTNAME}/s#…`;
 		const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
 		const anchored = new Set(['/', '.', '#', '…', ':']);
 		const duration = 1400;
@@ -422,7 +423,7 @@
 	<meta name="description" content="Nowhere encodes an entire website into a URL. The site lives in the link itself and is never stored on a server. Open the app to create, scan, and view them.">
 	<meta property="og:title" content="nowhere">
 	<meta property="og:description" content="Nowhere encodes an entire website into a URL. The site lives in the link itself and is never stored on a server. Open the app to create, scan, and view them.">
-	<meta property="og:image" content="https://nowhr.xyz/og.png">
+	<meta property="og:image" content="{RENDERER_ORIGIN}/og.png">
 	<meta property="og:type" content="website">
 	<meta name="twitter:card" content="summary">
 </svelte:head>
@@ -462,7 +463,7 @@
 						autocomplete="off"
 						autocorrect="off"
 						spellcheck="false"
-						placeholder="nowhr.xyz/s#…"
+						placeholder="{SITE_HOSTNAME}/s#…"
 						bind:value={linkValue}
 						onkeydown={handleKeydown}
 						onfocus={dismissOverlay}

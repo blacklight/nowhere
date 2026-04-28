@@ -198,7 +198,7 @@
 				<p class="c-body">
 					Navigate here with a base64url-encoded JSON payload as the URL fragment.
 				</p>
-				<pre class="c-pre">https://nowhr.xyz/c#&lt;base64url(JSON)&gt;</pre>
+				<pre class="c-pre">{RENDERER_ORIGIN}/c#&lt;base64url(JSON)&gt;</pre>
 				<p class="c-body">The JSON must include a <code>type</code> and a <code>data</code> object.</p>
 				<p class="c-body c-muted">
 					Valid types: <code>store</code> · <code>event</code> · <code>message</code> · <code>fundraiser</code> · <code>petition</code> · <code>discussion</code> · <code>drop</code> · <code>art</code>
